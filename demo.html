@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Quicklook Demo</title>
+	<link rel="stylesheet" href="css/quicklook.css">
+	<style>
+	body{
+		font-family: sans-serif;
+	}
+	#page{
+		width: 40%;
+		margin: 0 auto;
+	}
+	span.caption{
+		display: block;
+		padding: 5px 0;
+	}
+	p.attachment{
+		padding: 4px;
+		background: #f7f7f7;
+		border: 1px solid #eee;
+		border-radius: 3px;
+		float: left;
+		clear: both;
+	}
+	</style>
+	<script src="http://code.jquery.com/jquery.min.js"></script>
+	<script src="js/quicklook.js"></script>
+	<script>
+	$(function(){
+		$('a.quicklook').quicklook();
+	})
+	</script>
+</head>
+<body>
+	<div id="page">
+		<div id="main">
+			<h1>Quicklook demo</h1>
+			<p>Click the images below</p>
+			<p class="attachment"><a id="1" href="http://placehold.it/400x800.jpg" class="quicklook"><img src="http://placehold.it/300x150" alt="Image"></a><span class="caption">Smallish</span></p>
+			<p class="attachment"><a href="http://placehold.it/990x2080.jpg" class="quicklook"><img src="http://placehold.it/300x150" alt="Image"></a><span class="caption">Very tall</span></p>
+			<p class="attachment"><a href="http://placehold.it/2080x990.jpg" class="quicklook"><img src="http://placehold.it/300x150" alt="Image"></a><span class="caption">Very Wide</span></p>
+			<p class="attachment"><a href="http://placehold.it/1200x1000.jpg" class="quicklook"><img src="http://placehold.it/80x80" alt="Image"></a><span class="caption">Wide and tall</span></p>
+			<p class="attachment"><a href="http://placehold.it/3200x3000.png" class="quicklook"><img src="http://placehold.it/80x80" alt="Image"></a><span class="caption">Frickin' massive!</span></p>
+		</div>
+		<div id="side"></div>
+	</div>
+</body>
+</html>
