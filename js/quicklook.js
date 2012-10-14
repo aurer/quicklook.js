@@ -95,6 +95,11 @@
 				quicklook.close();
 			});
 
+			// Close when clicking close button
+			quicklook.qlLink.on('click', function(){
+				quicklook.openImagePath();
+			});
+
 			// Recache window size
 			$(window).resize(function(){
 				quicklook.windowWidth = this.innerWidth;
@@ -421,6 +426,15 @@
 			return quicklook;
 		},
 
+		// Open the actual image in a new tab/window
+		openImagePath : function(){
+			var link =  $(quicklook.element).attr('href');
+			if(link !== undefined){
+				window.open(link);
+			}
+		},
+
+		// An error occured loading an image so make it obvious
 		error : function(img){
 			quicklook.qlWindow.addClass('error');
 			clearTimeout(quicklook.loaderTimeout);
@@ -432,13 +446,17 @@
 			return quicklook;
 		},
 
+		// Add the quicklook html to the DOM
 		addQuicklookWindow : function(){
-			this.qlCover = $('<div>', { id : "quicklookcover"} ).appendTo('body');
-			this.qlWindow = $('<div>', { id : "quicklookwindow"} ).appendTo('body');
-			this.qlInner = $('<div>', { id : "quicklookinner"} ).appendTo(this.qlWindow);
-			this.qlMast = $('<div>', { id : "quicklookmast"} ).prependTo(this.qlWindow);
-			this.qlClose = $('<a>', {id: 'quicklookclose'} ).prependTo(this.qlMast);
-			this.qlLoader = $('<div>', { id : "quicklookloader"} ).appendTo(this.qlWindow);
+			if( !$('#quicklookcover').length ){
+				this.qlCover = $('<div>', { id : "quicklookcover"} ).appendTo('body');
+				this.qlWindow = $('<div>', { id : "quicklookwindow"} ).appendTo('body');
+				this.qlInner = $('<div>', { id : "quicklookinner"} ).appendTo(this.qlWindow);
+				this.qlMast = $('<div>', { id : "quicklookmast"} ).prependTo(this.qlWindow);
+				this.qlLink = $('<a>', {id: 'quicklooklink'} ).prependTo(this.qlMast);
+				this.qlClose = $('<a>', {id: 'quicklookclose'} ).prependTo(this.qlMast);
+				this.qlLoader = $('<div>', { id : "quicklookloader"} ).appendTo(this.qlWindow);
+			}
 			return quicklook;
 		}
 	};

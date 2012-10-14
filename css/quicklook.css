@@ -1,3 +1,7 @@
+/* @override http://wordpress.pro/content/themes/aurer_v2/css/quicklook.css */
+
+/* @override http://wordpress.pro/content/themes/aurer_v2/css/quicklook.css */
+
 #quicklookwindow,
 #quicklookcover{
 	position: absolute;
@@ -7,13 +11,12 @@
 	display: none;
 	background:#000;
 	background:rgba(0,0,0,0.8);
-	border-radius: 4px;
 }
 #quicklookwindow.loading{
 	opacity: .8;
 }
 #quicklookwindow.error{
-	background: #efefef url(../img/404.png) no-repeat center center;
+	background: #efefef url(../gfx/404.png) no-repeat center center;
 }
 #quicklookcover{
 	position: fixed;
@@ -66,7 +69,17 @@
 	width: 16px;
 	height: 16px;
 	overflow: hidden;
-	background: url(../img/close.png) no-repeat center center;
+	background: url(../gfx/close.svg) no-repeat center center;
+}
+#quicklooklink{
+	cursor:  pointer;
+	position: absolute;
+	right: 4px;
+	top: 4px;
+	width: 16px;
+	height: 16px;
+	overflow: hidden;
+	background: url(../gfx/link.svg) no-repeat center center;
 }
 #quicklookloader{
 	width: 35px;
@@ -76,5 +89,5 @@
 	top: 50%;
 	border-radius: 5px;
 	margin: -17px 0  0 -17px;
-	background: url(../img/loop.gif);
+	background: url(../gfx/loop.gif);
 }
